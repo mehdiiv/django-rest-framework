@@ -9,3 +9,15 @@ class User(models.Model):
 
     class Meta:
         db_table = "users"
+
+
+class Message(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=512)
+    body = models.TextField(max_length=2048)
+
+    def is_authenticated(self):
+        return True
+
+    class Meta:
+        db_table = 'messages'
