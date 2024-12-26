@@ -1,9 +1,7 @@
-from django.http import JsonResponse
 from decouple import config
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 import jwt
-import json
 from .models import User
 
 JWT_SECRET_KEY = config('JWT_SECRET_KEY')
